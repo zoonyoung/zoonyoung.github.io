@@ -1,0 +1,86 @@
+.container {
+  padding: 1rem 0;
+}
+
+.upperBox {
+  display: flex;
+  align-items: flex-end;
+}
+
+.bottomBox {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.themeBox {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+  border: 2px solid var(--rose);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+.theme {
+  cursor: pointer;
+  position: relative;
+  color: var(--text);
+
+  &:hover {
+    font-weight: 700;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    content: " ";
+    width: 0%;
+    border-bottom: 2px solid var(--foam);
+    transition: width 0.5s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.selection {
+  font-weight: 700;
+  transform: scale(1.05);
+}
+
+
+.toggleButton {
+  margin-left: auto;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 900;
+  text-decoration: none;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-size: 300% 100%;
+  background-position: top left;
+  background-image: linear-gradient(to right,
+      var(--text),
+      var(--text) 33%,
+      var(--rose) 66%,
+      var(--foam));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    background-position: top left 100%;
+    font-weight: 700;
+  }
+}
+
+.small {
+  color: var(--subtle);
+  font-size: 0.8rem;
+}

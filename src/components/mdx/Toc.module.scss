@@ -1,0 +1,99 @@
+.tocContainer {
+  position: absolute;
+  right: -20px;
+  transform: translateX(100%);
+  width: 100%;
+  max-width: 250px;
+  max-height: 80vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--base);
+  padding: 1rem;
+  border-left: 1px solid var(--foam);
+}
+
+.tocTitle {
+  user-select: none;
+  cursor: pointer;
+}
+
+.tocList {
+  font-size: 1rem;
+  max-width: fit-content;
+}
+
+.tocLink {
+  text-decoration: none;
+  color: var(--text);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.fixed {
+  position: fixed;
+  width: 250px;
+  top: 50px;
+}
+
+.numbering {
+  margin-right: 0.5rem;
+  color: var(--text);
+}
+
+.hiddenHref {
+  display: none;
+  color: gray;
+  font-size: 0.75rem;
+  margin-left: 1rem;
+
+  .tocLink:hover & {
+    display: inline-block;
+  }
+}
+
+.active {
+  font-weight: bold;
+  color: var(--foam);
+}
+
+.tight {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+}
+
+.ml1 {
+  margin-left: 0.25rem;
+}
+
+.ml2 {
+  margin-left: 0.5rem;
+}
+
+.ml3 {
+  margin-left: 0.75rem;
+}
+
+.ml4 {
+  margin-left: 1rem;
+}
+
+.ml5 {
+  margin-left: 1.25rem;
+}
+
+.ml6 {
+  margin-left: 1.5rem;
+}
+
+/* h1 ~ h6 스타일 */
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-size: inherit;
+}

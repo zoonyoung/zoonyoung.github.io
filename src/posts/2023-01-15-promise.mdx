@@ -1,0 +1,43 @@
+---
+title: "[JavaScript]Promise와 async/await"
+categories: "javascript"
+tags: ["javascript","promise","async","await"]
+comments: true
+draft: false
+date: "2023-01-15"
+update: ""
+image: "/images/2023-01-15-promise/thumbnail.png"
+---
+
+<Toc toc={toc} ordered indented maxDepth={5} tight skipParents={["listItem", "container"]} />
+
+
+# Promise
+
+>  Promise: 비동기 작업의 완료, 실패를 나타내는 객체(작업의 결과 +  상태(peding/fulfilled/rejected))
+
+여기서 중요한 키워드는 **비동기** 와 **객체** 라는 점이다.
+
+## 세가지 상태
+
+* pending(대기중): 초기 상태, 비동기 작업이 완료되지 않은 상태
+* fulfilled(완료): 비동기 작업이 완료된 상태
+* rejected(실패): 비동기 작업이 실패된 상태
+
+
+
+![image-20240715141339360](/images/2023-01-15-promise/image-20240715141339360.png)
+
+### Promise 객체
+
+```tsx
+let promise = new Promise((resolve, reject)=> {
+	let sucess = true; // 작업의 성공 or 실패
+  if(sucess) resolve()
+  else reject()
+})
+```
+
+- Promise 객체는 resolve, reject를 인자로 받는다
+- 작업 성공 -> resolve 호출
+- 작업 실패 -> reject 호출

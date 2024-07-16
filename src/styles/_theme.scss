@@ -1,0 +1,49 @@
+@import "./_variables.scss";
+
+:root {
+  --rose: #{$light-rose};
+  --pine: #{$light-pine};
+  --foam: #{$light-foam};
+  --iris: #{$light-iris};
+  --highlight-low: #{$light-highlight-low};
+  --highlight-med: #{$light-highlight-med};
+  --highlight-high: #{$light-highlight-high};
+  --base: #{$light-base};
+  --surface: #{$light-surface};
+  --overlay: #{$light-overlay};
+  --muted: #{$light-muted};
+  --subtle: #{$light-subtle};
+  --text: #{$light-text};
+}
+
+[data-theme="dark"] {
+  --rose: #{$dark-rose};
+  --pine: #{$dark-pine};
+  --foam: #{$dark-foam};
+  --iris: #{$dark-iris};
+  --highlight-low: #{$dark-highlight-low};
+  --highlight-med: #{$dark-highlight-med};
+  --highlight-high: #{$dark-highlight-high};
+  --base: #{$dark-base};
+  --surface: #{$dark-surface};
+  --overlay: #{$dark-overlay};
+  --muted: #{$dark-muted};
+  --subtle: #{$dark-subtle};
+  --text: #{$dark-text};
+}
+
+[data-theme="moon"] {
+  --rose: #{$moon-rose};
+  --pine: #{$moon-pine};
+  --foam: #{$moon-foam};
+  --iris: #{$moon-iris};
+  --highlight-low: #{$moon-highlight-low};
+  --highlight-med: #{$moon-highlight-med};
+  --highlight-high: #{$moon-highlight-high};
+  --base: #{$moon-base};
+  --surface: #{$moon-surface};
+  --overlay: #{$moon-overlay};
+  --muted: #{$moon-muted};
+  --subtle: #{$moon-subtle};
+  --text: #{$moon-text};
+}

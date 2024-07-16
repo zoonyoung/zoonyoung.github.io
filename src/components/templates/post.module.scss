@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleBox {
+
+  padding: 3rem 0;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.thumbnail {
+  border-radius: 8px;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  margin: 0 1rem 1rem 0;
+}

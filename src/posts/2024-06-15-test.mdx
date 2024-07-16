@@ -1,0 +1,49 @@
+---
+title: "MongoDB 이해하기"
+categories: "article"
+tags: ["database","mongodb","server"]
+comments: true
+draft: false
+date: "2024-06-15"
+update: ""
+image: "/images/2024-06-15-test/thumbnail.png"
+---
+
+<Toc toc={toc} ordered indented maxDepth={5} tight skipParents={["listItem", "container"]} />
+
+
+# MongoDB 이해하기
+
+. MongoDB는 NoSQL 데이터베이스 중 하나로, JSON과 유사한 형식의 도큐먼트(document)를 저장하는 데 사용됩니다. 이는 스키마가 고정되지 않고 유연하며, 높은 확장성과 성능을 제공합니다.
+
+## MongoDB의 주요 특징
+
+- **유연한 스키마**: MongoDB는 스키마가 고정되지 않아 다양한 형식의 데이터를 저장할 수 있습니다.
+- **고성능**: 높은 읽기 및 쓰기 성능을 제공하여 대규모 데이터 처리가 가능합니다.
+- **확장성**: 샤딩(sharding) 기능을 통해 데이터베이스를 수평적으로 확장할 수 있습니다.
+
+## 기본 사용법
+
+### 설치
+
+MongoDB를 설치하려면, 공식 웹사이트에서 설치 파일을 다운로드하고 지침에 따라 설치합니다.
+
+### 기본 명령어
+
+MongoDB 셸에서 기본적인 명령어는 다음과 같습니다:
+
+```javascript
+// 데이터베이스 선택
+use mydatabase;
+
+// 데이터 삽입
+db.mycollection.insert({ name: "John", age: 30 });
+
+// 데이터 조회
+db.mycollection.find({ name: "John" });
+```
+
+```
+
+
+```
