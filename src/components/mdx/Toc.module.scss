@@ -1,3 +1,5 @@
+@import "@/styles/_mixins";
+
 .tocContainer {
   position: absolute;
   right: -20px;
@@ -10,7 +12,11 @@
   overflow-x: hidden;
   background-color: var(--base);
   padding: 1rem;
-  border-left: 1px solid var(--foam);
+  border-left: 1px solid var(--iris);
+
+  @include respond-to(tablet) {
+    display: none;
+  }
 }
 
 .tocTitle {
@@ -20,7 +26,9 @@
 
 .tocList {
   font-size: 1rem;
-  max-width: fit-content;
+  li {
+    list-style: none;
+  }
 }
 
 .tocLink {
@@ -54,11 +62,6 @@
   }
 }
 
-.active {
-  font-weight: bold;
-  color: var(--foam);
-}
-
 .tight {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
@@ -66,10 +69,6 @@
 
 .ml1 {
   margin-left: 0.25rem;
-}
-
-.ml2 {
-  margin-left: 0.5rem;
 }
 
 .ml3 {
@@ -96,4 +95,11 @@
 .h5,
 .h6 {
   font-size: inherit;
+}
+
+.ml3,
+.ml4,
+.ml5,
+.ml6 {
+  font-size: 0.8rem;
 }

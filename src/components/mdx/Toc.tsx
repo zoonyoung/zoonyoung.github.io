@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
-import Sticky from "sticky-js";
-
-import { cn } from "@/utils/className";
+import React from "react";
+import StickyBox from "react-sticky-box";
 
 import styles from "./Toc.module.scss";
 
@@ -30,13 +28,6 @@ const Toc = ({
   skipLevels = [1],
   skipParents = [],
 }: Props) => {
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    new Sticky(".toc");
-  }, []);
-
-  if (!toc) return null;
-
   const exludeRegexFilter = exclude
     ? Array.isArray(exclude)
       ? new RegExp(exclude.join("|"), "i")
@@ -58,8 +49,8 @@ const Toc = ({
   );
 
   return (
-    <div data-sticky-container>
-      <details className={cn(styles.tocContainer, "toc")} open>
+    <StickyBox offsetTop={100}>
+      <details className={styles.tocContainer} open>
         <summary className={styles.tocTitle}>
           <strong>TABLE OF CONTENTS</strong>
         </summary>
@@ -86,7 +77,7 @@ const Toc = ({
           ))}
         </ul>
       </details>
-    </div>
+    </StickyBox>
   );
 };
 

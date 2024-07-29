@@ -16,7 +16,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
   const options: MDXRemoteOptions = {
     disableImports: true,
     parseFrontmatter: true,
-    vfileDataIntoScope: ["toc"], // the "remark-flexible-toc" plugin produces vfile.data.toc
+    vfileDataIntoScope: ["toc"],
     mdxOptions: {
       remarkPlugins: [RemarkFlexibleToc, remarkGfm],
       rehypePlugins: [
@@ -35,6 +35,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
   };
 
   if (!post) return null;
+
   return (
     <PostTemplate {...post}>
       <MDXRemote source={post.content} options={options} components={components} />
@@ -44,7 +45,6 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
 export function generateStaticParams() {
   const postNameList = getAllPostName();
-
   return postNameList.map(post => ({
     slug: post,
   }));

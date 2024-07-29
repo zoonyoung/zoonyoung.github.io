@@ -5,7 +5,6 @@
 }
 
 .titleBox {
-
   padding: 3rem 0;
 }
 
@@ -23,4 +22,9 @@
   justify-content: flex-end;
   gap: 0.2rem;
   margin: 0 1rem 1rem 0;
+}
+
+.categoryBox {
+  display: flex;
+  gap: 0.6rem;
 }

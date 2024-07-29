@@ -1,0 +1,94 @@
+---
+title: "[React]모달 컴포넌트 만들기"
+categories: "components"
+tags: ["modal","react","javascript","typescript"]
+comments: true
+draft: false
+date: "2024-06-25"
+image: "/images/2024-05-13-modal/thumbnail.png"
+---
+
+<Toc toc={toc} ordered indented maxDepth={5} tight skipParents={["listItem", "container"]} />
+
+
+## 기존 모달
+
+프로젝트에서 사용하던 모달은 생각보다 불편한점이 너무 많았다.
+
+더 좋은 모달을 반드시 만들어주겠다고 약속했고, 프로젝트가 끝난 지금 약속을 지키려고 등장!
+
+프로젝트에서 사용하던 모달은 다음과 같다
+
+```tsx
+// Modal.tsx
+// ...생략
+
+type ModalProps = {
+  children: React.ReactNode;
+  onClose?: () => void;
+};
+
+function ModalPortal({ children }: { children: React.ReactNode }) {
+  const [element, setElement] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setElement(document.getElementById("modal"));
+  }, []);
+
+  if (!element) return null;
+  return ReactDOM.createPortal(children, element) as JSX.Element;
+}
+
+export default function Modal({ children, onClose }: ModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const callback = onClose || (() => null);
+  useKeydown("Escape", callback);
+  usePreventScroll();
+
+  return (
+    <ModalPortal>
+      <section className={styles.container}>
+        <div
+          className={styles.box}
+          ref={modalRef}
+        >
+          {children}
+        </div>
+      </section>
+    </ModalPortal>
+  );
+}
+```
+
+모달 껍데기를 만들어두고 들어가야하는 내용들을 껍데기의 children으로 보내는 형식의 모달이였다.
+
+## 기존 모달의 문제
+
+1. 모달이 여러개인 경우 많은 State와 close 함수들을 생성해야한다. 가독성이 안좋고, 유지보수의 번거로움이
+
+   - 이에 대한 해결책으로 MODAL에 들어가는 컴포넌트들을 상수에 넣고 다음과 같은 방법을 사용했었다.
+
+     ```tsx
+       const [modalState, setModalState] = useState<{ [key: string]: boolean }>({
+         reviewModal: false,
+         compareModal: false,
+         loginModal: false,
+         editModal: false,
+       });
+     
+      const openModal = (modalName: string) => setModalState((prev) => ({ ...prev, [modalName]: true }));
+       const closeModal = (modalName: string) => setModalState((prev) => ({ ...prev, [modalName]: false }));
+     
+     ```
+
+2. 열심히 만들어놓은 모달 컴포넌트를 사용하는 곳에서 마다 모달의 상태를 선언하고 conditional로 모달 출력을 계속 해줘야 한다는것.
+
+   이게 정말 너무 불편했는데, 불편함을 안겨준 모달은 LoginModal이었다.
+
+    LoginModal은 다른 컴포넌트에서도 꽤나 많이 사용해야 했다. 그때마다 다른 컴포넌트들을 찾아가서 LoginModal의 state를 선언하고 handleClose 함수를 만들어야했다.
+
+> 어떻게 모달을 잘 만들어 볼 수 있을까 고민하던 중, 아주 좋은 글을 만나게 됐다.
+
+[낙타님의 블로그 | 효율적인 모달 만들기](https://nakta.dev/how-to-manage-modals-1)
+
+### 모달 만들어보기(feat. typescript)

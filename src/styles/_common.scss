@@ -5,11 +5,11 @@
 body {
   color: var(--text);
   background: var(--base);
+  max-width: 100vw;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  color: var(--foam);
 }
 
 h1,
@@ -18,11 +18,9 @@ h3 {
   font-weight: 600;
 }
 
-
 /* List styling */
 
 .post-content {
-
   p,
   li {
     line-height: 1.8rem;
@@ -56,20 +54,22 @@ h3 {
   }
 }
 
-
 // code style
 [data-rehype-pretty-code-figure] {
-  padding: 1rem;
+  padding: 0.6rem 0;
 }
 
 [data-rehype-pretty-code-figure] pre {
   overflow-x: auto;
   padding: 1rem 0;
+  border: 1px solid var(--rose);
   border-radius: 8px;
 }
 
 [data-rehype-pretty-code-figure] [data-line] {
-  padding: 0 1.5rem;
+  font-family: pretendard;
+  line-height: 1.4rem;
+  padding: 0 1rem;
 }
 
 // TOC style
@@ -89,7 +89,7 @@ h3 {
 }
 
 .anchor:hover,
-.prose *:hover>.anchor {
+.prose *:hover > .anchor {
   visibility: visible;
 }
 

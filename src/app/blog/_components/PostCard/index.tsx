@@ -12,7 +12,7 @@ const PostCard = ({ post }: { post: Post }) => {
   return (
     <Link href={`/post/${post.slug}`}>
       <div className={styles.container}>
-        <Image src={post.image} width={250} height={140} alt="post" priority />
+        <Image className={styles.image} src={post.image} width={250} height={140} alt="post" priority />
         <h1>{post.title}</h1>
         <div className={styles.subBox}>
           <small>

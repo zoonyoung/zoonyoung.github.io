@@ -22,9 +22,11 @@ const PostTemplate = ({ title, image, tags, draft, date, children }: Props) => {
       </div>
       <Image className={styles.thumbnail} src={image} alt="main" width={715} height={400} />
       <div className="post-content">{draft ? <div>Not yet published</div> : children}</div>
-      {tags.map(tag => (
-        <Chip key={tag} title={tag} />
-      ))}
+      <div className={styles.categoryBox}>
+        {tags.map(tag => (
+          <Chip key={tag} title={tag} />
+        ))}
+      </div>
       <Giscus />
     </article>
   );
